@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	
+    <meta http-equiv="Content" content="text/html;charse=utf-8"/>
+
+	<title>表单页面调整</title>
+</head>
+<body>
+<!--叹号加tab键可以快速出来html基本结构-->
+<!--本节较上节新增内容有按钮区域的跨列代码、每个td中的对齐方式align、表格边框border-->
+<!--注意：下方演示的action.php文件并非后台语言php，是用html写的随便代替一下展示效果，实际是要用真的php，此处无需了解。-->
+
+
+     <form action="action.php" method="post" target="_blank" name="form_biaodan3">
+      <!--form标签:
+                  action="URL" 提交表单时向何处发送表单数据（即提交表单后处理数据的文件）
+
+                  method="get、post" 设置表单以何种方式发送到指定页面。
+                         （get是默认，保密性差，把输入的数据都暴露在url地址问号？的后面，使用url传递参数，对所发送信息数量也有限制，一般用于信息获取；
+                           post表单数据作为http请求体的一部分，对发送信息数量无限制，一般用于修改服务器上的资源）
+
+                  name="form_name" 表单的名称
+
+                  target="_blank、_self、_parent、_top" 在何处打开action URL
+                         （对应分别为：空的页面打开、当前页面打开、框架结构上使用、框架结构上使用）
+
+                  enctype="application/x-www-form-urlencoded、 multipart/form-data、text/plain" 在发送表单数据之前如何对其进行编码
+                          （第一种为默认方式，在发送前编码所有字符，不能用于文件上传、第二种不对字符进行编码，在表单页面包含上传控件时必须使用、第三种是将空格转换为“+”，但不对特殊字符编码）
+      -->
+     
+        姓名：<input type="text" name="username"/> 
+                                                                                                      	                                                                                              
+        密码：<input type="password" name="paw"/>
+        <input type="submit"/>
+
+     </form>
+
+
+        <hr/>
+        <br/><br/><br/>
+        <!--下方正式开始-->
+
+        <h1 align="center">注册信息</h1>
+        <hr color="#336699"/>
+        <form>
+          <table width="600px" bgcolor="#f2f2f2" align="center" border="1">
+          	<tr>
+          		<td align="right">姓名：</td>
+          		<td align="left"><input type="text" name="username" size="25" maxlength="6" placeholder="请输入姓名"/></td>
+          	</tr>
+
+          	<tr>
+          		<td align="right">邮箱：</td>
+          		<td align="left"><input type="text" name="email" value="@163.com"/></td>
+          	</tr>
+
+          	<tr>
+          		<td align="right">密码：</td>
+          		<td align="left"><input type="password" name="paw" size="25" maxlength="6" placeholder="请输入密码"/></td>
+          	</tr>
+
+
+          	<tr>
+          		<td align="right">确认密码：</td>
+          		<td align="left"><input type="password" name="paw_confirm" size="25" maxlength="6" placeholder="请再输入密码"/></td>
+          	</tr>
+
+          	<tr>
+          		<td align="right">上传照片：</td>
+          		<td align="left"><input type="file" name="file"/></td>
+          	</tr>
+
+          	<tr>
+          		<td align="right">性别：</td>
+          		<td align="left">男<input type="radio" name="sex" value="man"/>
+          	        女<input type="radio" name="sex" value="women"/> 
+          	        保密<input type="radio" name="sex" value="bm" checked /> 
+          	    </td>
+          	</tr>
+
+          	<tr>
+          		<td align="right">爱好：</td>
+          		<td align="left">读书<input type="checkbox" name="dx1" value="read" checked />
+          			跳舞<input type="checkbox" name="dx1" value="dance"/> 
+          			唱歌<input type="checkbox" name="dx1" value="sing"/>
+          		</td>
+          	</tr>
+
+            <!--| 想把按钮表单元素都整体居中，则要先把左右表格合并，即跨列colspan-->
+          	<tr>
+          		<td colspan="2" align="center"><input type="button" name="onlyname" value="来点我"/>
+          		    <input type="submit" name="onlyname" value="submit"/>
+          			  <input type="reset"  name="onlyname" value="reset"/> 
+          		</td>
+              <!--因为跨列了所以这里删除<td></td>-->
+          	</tr>
+            <!--| 想把按钮表单元素都整体居中，则要先把两行合并，即跨列colspan-->
+
+          	<tr>
+          		<td><input type="image" name="image_button" src="tuxiangyu.png"/></td>
+          		<td><input type="hidden" name="hidden" value="这是用户看不到的"/>
+          		</td>
+          	</tr>
+
+          	
+
+
+            <tr>
+          		<td align="right">城市：</td>
+          		<td align="left">
+          			<select>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          				<option value="bj">北京</option>
+          				<option value="sh">上海</option>
+          				<option value="hz">杭州</option>
+          			</select>
+          		</td>
+          	</tr>
+
+            
+          	<tr>
+          		<td align="right">城市：</td>
+          		<td align="left">
+          			<select name="city" size="3" multiple>
+          				<option value="xz">--请选择--</option>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          				<option value="bj">北京</option>
+          				<option value="sh">上海</option>
+          				<option value="hz">杭州</option>
+          			</select>
+          		</td>
+          	</tr>
+
+           
+          	<tr>
+          		<td align="right">城市：</td>
+          		<td align="left">
+          			<select name="city" size="3" multiple>
+          				<option value="xz">--请选择--</option>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          				<option value="bj" selected>北京</option>
+          				<option value="sh">上海</option>
+          				<option value="hz">杭州</option>
+          			</select>
+          		</td>
+          	</tr>
+
+            
+            
+            <tr>
+          		<td align="right">城市：</td>
+          		<td align="left">
+          			<select name="city">
+          				<option>--请选择--</option>
+          				  <optgroup lable="浙江">
+          				<option value="jx">嘉兴</option>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          			    </optgroup>
+
+          			    <optgroup lable="丽水">
+          				<option value="yh">云和</option>
+          				<option value="jn" selected>景宁</option>
+          				<option value="lq">龙泉</option>
+          				  </optgroup>
+          			</select>
+          		</td>
+          	</tr>             
+
+            
+            <tr>
+          		<td align="right">城市：</td>
+          		<td align="left">
+          			<select name="city" size="2" multiple>
+          				<option>--请选择--</option>
+          				<optgroup lable="浙江">
+          				<option value="jx">嘉兴</option>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          			    </optgroup>
+
+          			    <optgroup lable="丽水">
+          				<option value="yh">云和</option>
+          				<option value="jn" selected>景宁</option>
+          				<option value="lq">龙泉</option>
+          				</optgroup>
+          			</select>
+          		</td>
+          	</tr> 
+
+
+
+          	<tr>
+          	    <td align="right">简介：</td>
+          	    <td align="left"><textarea name="jj" rows="3" cols="50" placeholder="请输入个人介绍">此处文字，rows设置成3，所以可见是3行，多余的会滚动条出现；cols设置成50宽度了；设置了placeholder，删掉这里的文字就可以看到了；实际中，这里这段文字最好不写。
+                                 </textarea>
+          	    </td>
+          	</tr> 
+
+          </table>
+        </form>
+
+</body>
+
+</html>

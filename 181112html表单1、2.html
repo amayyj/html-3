@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	
+    <meta http-equiv="Content" content="text/html;charse=utf-8"/>
+
+	<title>基础表单</title>
+</head>
+<body>
+<!--表单主要用来搜集信息，接受用户输入的信息。工作原理：访问含表单页面输入数据提交后，浏览器将数据打包发给服务器，服务器接收并转由程序处理。-->
+<!--form标签(指的只是一个区域)内放表单元素，其表单本身不可见，页面里看到的内容是具体的表单元素-->
+     <form>
+     	<!--form标签中，以下标签实现表单元素添加：<input/> 表单输入标签
+     		                                 <select> 菜单和列表标签
+     		                                 <option> 菜单和列表项目标签    		                                 
+     		                                 <optgroup> 菜单和列表项目分组标签
+     		                                 <textarea> 文字域标签
+     	-->
+        
+        <!--input表单输入标签-->
+        <!--语法：
+        <input type="类型属性" name="名称（最好用英文）....../">
+        -->
+        <!--input type属性值：text 文本域
+        	                 password 密码域(是文本域的形式，输入到文本域的文字“......”)
+        	                 file 文件域
+        	                 checkbox 复选域
+        	                 radio 单选域
+        	                 Button 按钮
+        	                 Submit 提交按钮
+        	                 Reset 重置按钮
+        	                 Hidden 隐藏域（用户不可见，传达给服务器的）
+        	                 image 图像域（图像提交按钮）
+        -->
+        姓名：<input type="text" name="username"/>  <!--单行文本域-->
+                                                   <!--单行文本域属性:name 文字域的名称
+                                                                    maxlength 指用户输入的最大字符长度
+                                                   	                size指定文本框的宽度，以字符个数为单位；文本框的缺省宽度是20个字符
+                                                   	                value 指定文本框的默认值
+                                                   	                placeholder 规定用户填写输入字符的提示	                
+                                                   -->
+                                                                                                      	                                                                                              
+        密码：<input type="password" name="paw"/>
+        <input type="submit"/>
+
+     </form>
+
+        <hr/>
+        <br/><br/><br/>
+        <!--下方正式开始-->
+
+        <h1 align="center">注册信息</h1>
+        <hr color="#336699"/>
+        <form>
+          <table width="600px" bgcolor="#f2f2f2" align="center">
+          	<tr>
+          		<td>姓名：</td>
+          		<td><input type="text" name="username" size="25" maxlength="6" placeholder="请输入姓名"/></td>
+          	</tr>
+
+          	<tr>
+          		<td>邮箱：</td>
+          		<td><input type="text" name="email" value="@163.com"/></td>
+          	</tr>
+
+          	<tr>
+          		<td>密码：</td>
+          		<td><input type="password" name="paw" size="25" maxlength="6" placeholder="请输入密码"/></td>
+          	</tr>
+
+
+          	<tr>
+          		<td>确认密码：</td>
+          		<td><input type="password" name="paw_confirm" size="25" maxlength="6" placeholder="请再输入密码"/></td>
+          	</tr>
+
+          	<tr>
+          		<td>上传照片：</td>
+          		<td><input type="file" name="file"/></td> <!--文件域的外观和浏览器有关-->
+          	</tr>
+
+          	<tr>
+          		<td>性别：</td>
+          		<td>男<input type="radio" name="sex" value="man"/> <!--这里value表示用户选择哪个就上传（确定）哪个给服务器，才知道选的是男是女-->
+          	        女<input type="radio" name="sex" value="women"/> <!--name要一致，因为只能选择一个，是单选框-->
+          	        保密<input type="radio" name="sex" value="bm" checked /> <!--checked处为默认选项-->
+          	    </td>
+          	</tr>
+
+          	<tr>
+          		<td>爱好：</td>
+          		<td>读书<input type="checkbox" name="dx1" value="read" checked /> <!--同单选框一样，value用来告诉和传给服务器用户选中的是哪项-->
+          			跳舞<input type="checkbox" name="dx1" value="dance"/> <!--虽然name值在复选框中可以不一致，但是实际开发中最好用一样的，因为服务器是根据name来判断哪一组的-->
+          			唱歌<input type="checkbox" name="dx1" value="sing"/>
+          		</td>
+          	</tr>
+
+          	<tr>
+          		<td><input type="button" name="onlyname" value="来点我"/></td>
+          		<td><input type="submit" name="onlyname" value="submit"/> <!--这里value表示按钮上面的文字，如果不写，submit默认文字是提交-->
+          			<input type="reset"  name="onlyname" value="reset"/> <!--这里value表示按钮上面的文字，如果不写，reset默认文字是重置-->
+          		</td>
+          	</tr>
+
+          	<tr>
+          		<td><input type="image" name="image_button" src="tuxiangyu.png"/></td> <!--图片按钮-->
+          		<td><input type="hidden" name="hidden" value="这是用户看不到的"/> <!--这里value表示按钮上面的文字，如果不写，submit默认文字是提交-->
+          		</td>
+          	</tr>
+
+          	<!--select下拉菜单和列表标签-->
+          	<!--option菜单和列表项目标签-->
+          	<!--不同input，这两个都是双标签-->
+          	<!--可节约空间和美观-->
+          	<!--语法：<select>
+          		        <option value="...">选项</option>
+          		        <option value="...">选项</option>
+                        ...
+          	         </select>
+          	-->
+          	<!--select属性：name 设置下拉菜单和列表的名称
+          		           multiple 设置可选择多个选项（需要配合ctrl键多选）
+          		           size 设置列表中可见选项的数目（初始时候就已经是可以看见多个选项，不用按下拉箭头）
+          	-->
+
+          	<!--option属性：selected 设置选项初始选中状态
+          		           value 定义送往服务器的选项值
+          	-->
+            <tr>
+          		<td>城市：</td>
+          		<td>
+          			<select>
+          				<option value="ls">丽水</option>  <!--value值才是真正传送给服务器的，比如这里用户选择的“丽水”内容仅仅是在页面展示-->
+          				<option value="wz">温州</option>
+          				<option value="bj">北京</option>
+          				<option value="sh">上海</option>
+          				<option value="hz">杭州</option>
+          			</select>
+          		</td>
+          	</tr>
+
+            <!--下方比上方的下拉菜单多了属性-->
+            <!--注意： 多了这两个属性之后菜单展示形式不是下拉了，而是多个选项打竖在菜单中显示的列表-->
+          	<tr>
+          		<td>城市：</td>
+          		<td>
+          			<select name="city" size="3" multiple>
+          				<option value="xz">--请选择--</option>
+          				<option value="ls">丽水</option>  <!--value值才是真正传送给服务器的，比如这里用户选择的“丽水”内容仅仅是在页面展示-->
+          				<option value="wz">温州</option>
+          				<option value="bj">北京</option>
+          				<option value="sh">上海</option>
+          				<option value="hz">杭州</option>
+          			</select>
+          		</td>
+          	</tr>
+
+            <!--下方比上方多了个option属性：selected-->
+          	<tr>
+          		<td>城市：</td>
+          		<td>
+          			<select name="city" size="3" multiple>
+          				<option value="xz">--请选择--</option>
+          				<option value="ls">丽水</option>  <!--value值才是真正传送给服务器的，比如这里用户选择的“丽水”内容仅仅是在页面展示-->
+          				<option value="wz">温州</option>
+          				<option value="bj" selected>北京</option> <!--此处多了option属性：selected 所以默认选中是北京-->
+          				<option value="sh">上海</option>
+          				<option value="hz">杭州</option>
+          			</select>
+          		</td>
+          	</tr>
+
+            
+            <!--optgroup分组下拉菜单和列表标签-->
+            <!--语法：
+                     <select name="">
+                     	<optgroup label="组1">
+          		        <option value="...">选项</option>
+          		        <option value="...">选项</option>
+          		        </optgroup>
+                        ...
+                        <optgroup label="组2">
+          		        <option value="...">选项</option>
+          		        <option value="...">选项</option>
+          		        </optgroup>
+          		        ...
+          	         </select>
+            -->
+            <tr>
+          		<td>城市：</td>
+          		<td>
+          			<select name="city">
+          				<option>--请选择--</option>
+          				  <optgroup lable="浙江">
+          				<option value="jx">嘉兴</option>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          			    </optgroup>
+
+          			    <optgroup lable="丽水">
+          				<option value="yh">云和</option>
+          				<option value="jn" selected>景宁</option>
+          				<option value="lq">龙泉</option>
+          				  </optgroup>
+          			</select>
+          		</td>
+          	</tr>             
+
+            <!--下方比上放多了size和multiple，所以展示形式为列表且可多选-->
+            <tr>
+          		<td>城市：</td>
+          		<td>
+          			<select name="city" size="2" multiple>
+          				<option>--请选择--</option>
+          				<optgroup lable="浙江">
+          				<option value="jx">嘉兴</option>
+          				<option value="ls">丽水</option>
+          				<option value="wz">温州</option>
+          			    </optgroup>
+
+          			    <optgroup lable="丽水">
+          				<option value="yh">云和</option>
+          				<option value="jn" selected>景宁</option>
+          				<option value="lq">龙泉</option>
+          				</optgroup>
+          			</select>
+          		</td>
+          	</tr> 
+
+
+          	<!--textarea文字域(多行文本域)标签-->
+          	<!--语法：
+          		    <textarea name=".." rows=".." cols=".."..>
+          		     内容..
+          		    </textarea>
+          	-->
+          	<!--textarea属性：name 设置文本区的名称
+          		             placeholder 设置描述文本区域预期值的简短提示
+          		             rows 设置文本区内的可见行数
+          		             cols 设置文本区内的可见宽度
+          	-->
+          	<tr>
+          	    <td>简介</td>
+          	    <td><textarea name="jj" rows="3" cols="50" placeholder="请输入个人介绍">此处文字，rows设置成3，所以可见是3行，多余的会滚动条出现；cols设置成50宽度了；设置了placeholder，删掉这里的文字就可以看到了；实际中，这里这段文字最好不写。</textarea>
+          	    </td>
+          	</tr> 
+
+          </table>
+        </form>
+
+</body>
+
+</html>
